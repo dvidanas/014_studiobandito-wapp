@@ -1,7 +1,7 @@
 # Studio Bandito — Panel v2 (vista previa de migración)
 
-Panel admin/CRM de Studio Bandito, clonado del código de **999_corteingles**
-(Paso 3 de la migración de schema documentada en el `CLAUDE.md` de la raíz de
+Panel admin/CRM de Studio Bandito, clonado del código base de la migración de
+schema (Paso 3, documentada en el `CLAUDE.md` de la raíz de
 `014_studiobandito`), con branding y datos propios.
 
 **No reemplaza al panel en producción** (`05_automatizacion_014`, deployado en

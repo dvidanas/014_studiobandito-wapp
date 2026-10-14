@@ -306,7 +306,7 @@ function sembrarHorarioNegocio(db: Database.Database) {
 }
 
 /**
- * Datos de demo de Corte Inglés (seed.sql). Solo corre sobre una base vacía:
+ * Datos de demo heredados del schema de origen (seed.sql). Solo corre sobre una base vacía:
  * si ya hay profesionales cargados no toca nada, así un deploy existente
  * nunca pierde ni duplica datos.
  */

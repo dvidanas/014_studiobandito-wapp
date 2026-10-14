@@ -44,8 +44,8 @@ export function verifySessionCookie(value: string): boolean {
  * (/api/publico/*, el puente de compatibilidad de la landing vieja) siguen
  * siendo alcanzables sin sesión, pero si alguien los usa logueado (staff
  * probando la landing, por ejemplo) hay que tratarlo como carga manual, no
- * como reserva de un desconocido — mismo criterio que `usuario` en
- * 034_pastalovers/04_dashboard_900/src/app/api/reservas/route.ts.
+ * como reserva de un desconocido — mismo criterio que `usuario` en el
+ * endpoint de reservas de un panel hermano.
  */
 export function hasValidSession(req: NextRequest): boolean {
   const cookie = req.cookies.get(COOKIE_NAME)?.value;

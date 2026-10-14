@@ -1,10 +1,10 @@
-# Studio Bandito — Dashboard + API (schema Corte Inglés)
+# Studio Bandito — Dashboard + API (schema Corte)
 
 ## Qué es esto
 
 El 2026-09-06 este código reemplazó al panel viejo de Bandito (schema
 `appointments`/`resources`/`services`) en `main` de este mismo repo
-(`dvidanas/studiobandito-wapp`). Es el codebase de `999_corteingles`
+(`dvidanas/studiobandito-wapp`). Es el codebase de la migración de schema
 (schema `citas`/`profesionales`/`servicios`, modelo multi-profesional)
 adaptado a Bandito: branding propio, datos reales migrados, UI pensada para
 un solo profesional activo hoy (Sol).
@@ -19,9 +19,9 @@ lo que hace falta para operar y mantener este código de acá en adelante.
 - Baileys — WhatsApp (NO conectado en producción por ahora, ver más abajo)
 - Node.js ≥ 20.9
 
-## Divergencias intencionales respecto a `999_corteingles`
+## Divergencias intencionales respecto al schema de origen
 
-Corte Inglés le sacó a Bandito el concepto de turno "pendiente" (sin
+Corte le sacó a Bandito el concepto de turno "pendiente" (sin
 confirmar) — todo turno nuevo nace `confirmada`. Bandito tenía 11 turnos
 reales en ese estado al momento de migrar, así que **acá `citas.estado`
 sigue admitiendo `'pendiente'`** además de los 4 estados de Corte

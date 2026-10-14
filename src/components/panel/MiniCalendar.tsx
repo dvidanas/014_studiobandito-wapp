@@ -48,7 +48,7 @@ export function MiniCalendar({
   const visibleWeeks = compact && !isExpanded ? [weeks[activeWeekIndex]] : weeks;
 
   // 310 px es el ancho util del calendario en las dos referencias: Studio
-  // Bandito (columna 350 con tarjeta p-5) y pastalovers (columna 340 con p-4,
+  // Bandito (columna 350 con tarjeta p-5) y un panel hermano (columna 340 con p-4,
   // que da 308). Las celdas son w-8 fijas y van centradas en cada columna de la
   // grilla, asi que todo el ancho sobrante se convierte en aire entre los dias:
   // a 380 px el paso se va de 44.6 a 54.6 px y el calendario se ve mucho mas

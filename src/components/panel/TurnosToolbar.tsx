@@ -8,7 +8,7 @@ const claseSelect =
 
 /**
  * Fila de stats + barra de búsqueda y filtros de la vista de Turnos.
- * Portado del patrón de Pasta Lovers, sin el filtro de zona: Bandito atiende
+ * Portado del patrón de un panel hermano, sin el filtro de zona: Bandito atiende
  * con un solo profesional.
  *
  * Todos los números salen de los turnos ya cargados en la página; no hay

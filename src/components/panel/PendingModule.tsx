@@ -21,7 +21,7 @@ import { COLOR_ESTADO, type Appointment, type EstadoCita } from "./types";
  * vista. De a uno entra todo sin scroll y además obliga a decidir sobre el
  * turno que se está mirando, que es el punto del módulo.
  *
- * Mismo patrón que el PendingModule de pastalovers, para que los dos paneles se
+ * Mismo patrón que el PendingModule de un panel hermano, para que los dos paneles se
  * recorran igual.
  */
 export function PendingModule({

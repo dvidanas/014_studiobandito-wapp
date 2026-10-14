@@ -48,7 +48,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // Mismo criterio que /api/publico/reservar y 034_pastalovers: el público
+  // Mismo criterio que /api/publico/reservar y el panel hermano: el público
   // no puede mandar cualquier texto como teléfono, el staff logueado sí (usa
   // este mismo puente para probar la landing, por ejemplo).
   const staff = hasValidSession(req);

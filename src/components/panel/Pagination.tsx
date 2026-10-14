@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Paginación portada del panel de Pasta Lovers.
+ * Paginación portada de un panel hermano.
  *
  * Única diferencia con el original: allá la lista se arma en el servidor y cada
  * página es un <Link> a "?page=N". Acá /clients es un componente cliente con la

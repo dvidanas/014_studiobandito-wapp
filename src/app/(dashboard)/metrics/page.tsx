@@ -290,7 +290,7 @@ export default function MetricsPage() {
   const cancelados = data ? data.estados.cancelada + data.estados.no_show : 0;
   const totalOrigen = data ? data.origen.web + data.origen.manual + data.origen.bot : 0;
 
-  // "Bot" solo se muestra si alguna vez entró un turno por ahí: en Corte Inglés
+  // "Bot" solo se muestra si alguna vez entró un turno por ahí: acá
   // el bot está apagado y una fila fija en cero es ruido.
   const origenFilas = data
     ? [

@@ -1,7 +1,7 @@
 // 014_studiobandito/05_automatizacion_014 — client.config.ts
 // El único archivo que cambia por deployment, siguiendo la convención de Feer.
 //
-// Este panel nace de clonar el código de 999_corteingles (panel admin/CRM,
+// Este panel nace de clonar el código base de la migración de schema (panel admin/CRM,
 // Paso 3 de la migración de schema), mergeado a main el 2026-09-06 en
 // reemplazo del panel viejo. Los 283 turnos y 257 clientes reales de Studio
 // Bandito ya están migrados y sembrados en producción.
@@ -27,7 +27,7 @@ export const clientConfig = {
 
   // --- Panel admin: claro por defecto, con toggle a oscuro ---
   // Mismos valores que ya usaba el panel viejo (05_automatizacion_014): Sol
-  // ya conoce esta paleta, no la de Corte Inglés (roja).
+  // ya conoce esta paleta, no la de Corte (roja).
   panel: {
     temaDefault: "claro" as "claro" | "oscuro",
     colores: {

@@ -3,7 +3,7 @@
 import { useState, type ReactNode } from "react";
 
 /**
- * Agrupación colapsable de turnos, portada del patrón de Pasta Lovers.
+ * Agrupación colapsable de turnos, portada del patrón de un panel hermano.
  *
  * Diferencia con el original: allá agrupa por hora exacta, porque varias mesas
  * comparten el mismo horario. Acá atiende una sola persona, así que nunca hay

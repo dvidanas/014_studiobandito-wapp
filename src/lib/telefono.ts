@@ -6,9 +6,8 @@
  * Se limpia lo que el usuario escriba (espacios, guiones, paréntesis) antes de
  * validar, para no exigir un formato de tipeo específico.
  *
- * Portado tal cual de 034_pastalovers/04_dashboard_900/src/lib/telefono.ts —
- * misma regla, mismo mensaje de error, para que Bandito y Corte Inglés queden
- * consistentes entre sí.
+ * Portado tal cual de un panel hermano — misma regla, mismo mensaje de
+ * error, para que los paneles queden consistentes entre sí.
  */
 export function normalizarTelefonoAR(raw: string): string | null {
   const limpio = raw.replace(/\D/g, "");

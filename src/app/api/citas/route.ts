@@ -46,8 +46,8 @@ export async function POST(req: Request) {
     cliente_nombre: body.cliente_nombre?.trim() || null,
     // Carga manual de staff: no se rechaza un teléfono raro (puede ser un
     // fijo, un número extranjero, o completarse después), pero si limpia a
-    // un AR válido se guarda ya limpio — mismo criterio que
-    // 034_pastalovers, para no generar una ficha de cliente duplicada.
+    // un AR válido se guarda ya limpio — mismo criterio que un panel
+    // hermano, para no generar una ficha de cliente duplicada.
     cliente_telefono: normalizarTelefonoAR(body.cliente_telefono ?? "") ?? (body.cliente_telefono?.trim() || null),
     codigo_descuento: body.codigo_descuento?.trim() || null,
     notas: body.notas?.trim() || null,

@@ -20,9 +20,10 @@ ENV PORT=3099
 #
 # OJO: este nombre de archivo tiene que coincidir con el que efectivamente
 # se siembra en el volumen (ver /api/admin/restore-db y el CLAUDE.md de este
-# panel). "corteingles.db" era el de Corte — un volumen nuevo NUNCA va a
-# tener ese archivo, y better-sqlite3 crearia una base vacia en su lugar sin
-# avisar, disparando el seedDemo() de Corte con datos falsos.
+# panel). El nombre de archivo que usaba el panel original del que se clonó
+# este código (antes de la migración de schema) era otro — un volumen nuevo
+# NUNCA va a tener ese archivo, y better-sqlite3 crearia una base vacia en su
+# lugar sin avisar, disparando el seedDemo() con datos de ejemplo falsos.
 ENV DB_PATH=/data/bandito-migrado.db
 
 COPY --from=builder /app/package*.json ./

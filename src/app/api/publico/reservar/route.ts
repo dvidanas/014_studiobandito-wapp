@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
   // El teléfono es el único canal para confirmar la reserva, así que el
   // público no puede mandar cualquier texto. El staff cargando a mano (mismo
   // endpoint, sesión logueada) sigue sin esta restricción — mismo criterio
-  // que 034_pastalovers. Si igual limpia a un AR válido, se usa la versión
+  // que un panel hermano. Si igual limpia a un AR válido, se usa la versión
   // limpia para no generar una ficha de cliente duplicada sin necesidad.
   const staff = hasValidSession(req);
   const telefonoLimpio = normalizarTelefonoAR(telefono ?? "");
