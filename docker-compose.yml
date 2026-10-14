@@ -8,10 +8,10 @@ services:
       - "3099:3099"
     volumes:
       # Convención estándar: SQLite y backups en el volumen /data.
-      - corteingles_data:/data
+      - corte_data:/data
     env_file:
       - .env
     restart: unless-stopped
 
 volumes:
-  corteingles_data:
+  corte_data:

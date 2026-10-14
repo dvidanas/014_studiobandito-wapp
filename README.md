@@ -43,5 +43,5 @@ no en este repo) o se sube de una vez a un deploy nuevo con
 
 ## PIN
 
-Mismo PIN que el panel real de producción (`0305`) — ver
-`src/lib/client.config.ts`.
+Mismo PIN que el panel real de producción — ver
+`src/lib/client.config.ts` (`loginPin`).

@@ -78,7 +78,7 @@ function migrate(db: Database.Database) {
     -- Negocio: single-tenant, siempre id = 1.
     CREATE TABLE IF NOT EXISTS negocio (
       id INTEGER PRIMARY KEY CHECK (id = 1),
-      nombre TEXT NOT NULL DEFAULT 'Corte Inglés',
+      nombre TEXT NOT NULL DEFAULT 'Corte',
       rubro TEXT NOT NULL DEFAULT 'barberia',
       logo_url TEXT,
       color_primario TEXT DEFAULT '#DC2626',
