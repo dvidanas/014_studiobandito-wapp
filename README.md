@@ -33,7 +33,7 @@ Sol lo revise antes de decidir el corte definitivo.
 ```
 npm install
 cp .env.example .env   # completar AUTH_SECRET; DB_PATH ya apunta a data/
-npm run dev            # puerto 3099 (ver package.json)
+npm run dev            # puerto 3014 (ver package.json)
 ```
 
 Necesita `data/bandito-migrado.db` — no se versiona (ver `.gitignore`). Se

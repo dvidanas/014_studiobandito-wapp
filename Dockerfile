@@ -14,7 +14,7 @@ FROM node:20-alpine
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV PORT=3099
+ENV PORT=3014
 # La base vive en el volumen /data, no dentro de la imagen: un redeploy
 # reemplaza el contenedor entero y se llevaria la base con el.
 #
@@ -33,5 +33,5 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.ts ./
 
 VOLUME ["/data"]
-EXPOSE 3099
+EXPOSE 3014
 CMD ["npm", "start"]

@@ -5,7 +5,7 @@ services:
       args:
         CACHEBUST: ${CACHEBUST:-1}
     ports:
-      - "3099:3099"
+      - "3014:3014"
     volumes:
       # Convención estándar: SQLite y backups en el volumen /data.
       - corte_data:/data
