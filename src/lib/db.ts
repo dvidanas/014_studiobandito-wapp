@@ -251,6 +251,7 @@ function migrate(db: Database.Database) {
   try { db.exec("ALTER TABLE conversations ADD COLUMN jid TEXT"); } catch { /* ya existe */ }
   try { db.exec("ALTER TABLE leads ADD COLUMN summary TEXT"); } catch { /* ya existe */ }
 
+  seedNegocio(db);
   seedDemo(db);
   sembrarHorarioNegocio(db);
 }
@@ -306,32 +307,48 @@ function sembrarHorarioNegocio(db: Database.Database) {
 }
 
 /**
- * Datos de demo heredados del schema de origen (seed.sql). Solo corre sobre una base vacía:
- * si ya hay profesionales cargados no toca nada, así un deploy existente
- * nunca pierde ni duplica datos.
+ * Siembra la fila única de `negocio` (branding real, desde clientConfig) la
+ * primera vez. Corre siempre, independientemente de SEED_DEMO_DATA: varias
+ * rutas (p.ej. /api/settings/business, /api/publico/catalogo) la leen como
+ * primera fuente antes de caer a clientConfig, así que conviene que exista
+ * desde el primer boot aunque el resto de seedDemo() no corra.
+ */
+function seedNegocio(db: Database.Database) {
+  db.prepare(
+    `INSERT OR IGNORE INTO negocio (id, nombre, rubro, color_primario, color_fondo_landing, tema_panel, whatsapp, direccion)
+     VALUES (1, ?, ?, ?, ?, ?, ?, ?)`
+  ).run(
+    clientConfig.nombre,
+    clientConfig.rubro,
+    clientConfig.landing.colores.acento,
+    clientConfig.landing.colores.fondo,
+    clientConfig.panel.temaDefault,
+    clientConfig.whatsapp,
+    clientConfig.direccion
+  );
+}
+
+/**
+ * Datos de demo heredados del schema de origen (seed.sql): sucursal,
+ * profesionales, servicios, disponibilidad, bloqueo, clientes, citas,
+ * comisiones, caja y código de descuento de ejemplo -- ninguno es de
+ * Bandito. Solo corre si SEED_DEMO_DATA="true" exacto (por defecto, no
+ * siembra nada de esto: un volumen nuevo sin esa bandera arranca con el
+ * panel vacío en vez de poblado con datos falsos). Además solo corre sobre
+ * una base vacía: si ya hay profesionales cargados no toca nada, así un
+ * deploy existente nunca pierde ni duplica datos.
  */
 function seedDemo(db: Database.Database) {
+  if (process.env.SEED_DEMO_DATA !== "true") return;
+
   const { count } = db
     .prepare<[], { count: number }>("SELECT COUNT(*) as count FROM profesionales")
     .get()!;
   if (count > 0) return;
 
   const seed = db.transaction(() => {
-    db.prepare(
-      `INSERT OR IGNORE INTO negocio (id, nombre, rubro, color_primario, color_fondo_landing, tema_panel, whatsapp, direccion)
-       VALUES (1, ?, ?, ?, ?, ?, ?, ?)`
-    ).run(
-      clientConfig.nombre,
-      clientConfig.rubro,
-      clientConfig.landing.colores.acento,
-      clientConfig.landing.colores.fondo,
-      clientConfig.panel.temaDefault,
-      clientConfig.whatsapp,
-      clientConfig.direccion
-    );
-
     db.prepare("INSERT INTO sucursales (id, nombre, direccion) VALUES (1, ?, ?)").run(
-      "Corte Inglés Centro",
+      "Corte Centro",
       "Av. San Martín 1234, San Juan"
     );
 
